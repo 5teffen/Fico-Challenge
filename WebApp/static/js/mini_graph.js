@@ -1,5 +1,7 @@
 
 function draw_mini_graph(testData, svg, width, height, shift, mini_idx){
+
+    console.log('Drawing');
     
     var good_col = "#1b9e77",
         bad_col = "#d95f02";
@@ -8,8 +10,6 @@ function draw_mini_graph(testData, svg, width, height, shift, mini_idx){
     var opp_colour = "";
 
     var separator = 0.015
-
-    console.log(testData[0].per);
 
     if (testData[0].per <= 0.5) {
         opp_colour = good_col;
@@ -141,7 +141,7 @@ function draw_all_graphs(totalData, mini_indexes){
     totalHeight = (height+separation)*totalData.length;
     
     
-    var svg = d3.select("#right-part-div")
+    var svg = d3.select("#right-graph-0")
             .append("svg")
             .attr("width",width + margin.right + margin.left)
             .attr("height",totalHeight + margin.top + margin.bottom)

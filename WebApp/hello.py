@@ -75,7 +75,7 @@ sample_transf()
 
 # ------ Initialize WebApp ------- #
 
-app = Flask(__name__, static_folder="C:/Users/Oscar/Documents/UGR 2018/Fico-Challenge-master/VisualApp1/static")
+app = Flask(__name__) # static_folder="C:/Users/Oscar/Documents/UGR 2018/Fico-Challenge-master/VisualApp1/static")
 
 @app.route('/')
 def intro_site():
