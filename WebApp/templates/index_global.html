@@ -53,29 +53,39 @@
           </div>
         </div>
 
-        <div id="right-panel">
-          <table id="feature-table2">
-            <tr>
+        <div id="middle-panel">
+        </div>
 
+        <div id="right-panel">
+        </div>
+          <!-- <table id="feature-table2">
+            <tr>
               <td id="middle-col">
-                <!-- <nav id="middle-nav"> -->
+
                   <ul id="combination-list">
                   </ul>
-                <!-- </nav> -->
               </td>
-              
+            </tr>
+          </table>
+
+        </div>
+
+        <div id="right-panel">
+
+          <table id="feature-table3">
+            <tr>
               <td id="right-part">
                 <div id="right-part-div">        
                 </div>
-              </td> 
-
+              </td>
             </tr>
           </table>
+
         </div>
 
       </div>
     </div>
-
+ -->
 
 
 
@@ -241,18 +251,30 @@
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
           if (httpRequest.status === 200) {
             //Do stuff with the response
-            document.getElementById("right-part-div").innerHTML = '';
+            document.getElementById("right-panel").innerHTML = "";
+            var table3 = document.createElement("table");     
+            table3.id = "feature-table3";
+
+            document.getElementById("right-panel").append(table3);
+            document.getElementById("right-panel").style.display = "inline-block";
+
 
             var resp_arr = httpRequest.responseText;
             var miniData = [];
             miniData = JSON.parse(resp_arr);
+
+            var tr = document.createElement("tr");
+            var li = document.createElement("td");
+            var li_div = document.createElement("div");
+            li.id = "right-td-0";
+            li_div.id = "right-graph-0";                
+
+            li.append(li_div);
+            tr.append(li);
+            document.getElementById("feature-table3").append(tr);
+
+
             draw_all_graphs(miniData[0], miniData[1]);
-
-
-            // setTimeout(function(){document.getElementById("right-part").onclick = function() {redirect_to_instance()}}, 700);
-
-            // document.getElementById("right-part").onclick = redirect_to_instance;
-            // document.getElementById("right-part-div").onclick = redirect_to_instance; 
             
           }
           else {
@@ -269,16 +291,24 @@
 
             var resp_arr = httpRequest.responseText;
             if (resp_arr == ""){
-              document.getElementById("combination-list").innerHTML = "";
+              document.getElementById("middle-panel").innerHTML = "";
             }
             else{
 
               var middleData = [];
               middleData = JSON.parse(resp_arr);
-              document.getElementById("combination-list").innerHTML = "";
+
+              document.getElementById("middle-panel").innerHTML = "";
+              var table2 = document.createElement("table");     
+              table2.id = "feature-table2";
+
+              document.getElementById("middle-panel").append(table2);
+              document.getElementById("middle-panel").style.display = "inline-block";
 
               for (var j = 0; j < middleData.length; j++) {
-                var li = document.createElement("li");
+
+                var tr = document.createElement("tr");
+                var li = document.createElement("td");
                 var li_div = document.createElement("div");
 
                 // li.innerHTML = j.toString();
@@ -288,7 +318,9 @@
                 // li_div.innerHTML = "MID GRAPH";                
 
                 li.append(li_div);
-                document.getElementById("combination-list").append(li);
+                tr.append(li);
+                document.getElementById("feature-table2").append(tr);
+
    
                 var curr_alg = "True";
 
@@ -316,7 +348,6 @@
                   var bad_len = 0;
                   for (k=0; k<tot_len; k++){
                     var pcnt = document.getElementsByClassName("mini-square-good-0")[j].parentNode.childNodes[k].className.baseVal.toString();
-                    // console.log(pcnt);
                     if (pcnt.indexOf("good") > -1){
                       good_len += 1;
                     }
@@ -342,8 +373,7 @@
                   }
 
                 }
-                var br = document.createElement("br");
-                document.getElementById("combination-list").append(br);
+
               }
             }
           }
@@ -509,7 +539,7 @@
           // link.innerHTML = ft_names[i];
           link.style.maxWidth = "125px"; 
           link.id = "feat-" + i.toString();
-          link.href = "#right-panel";
+          // link.href = "#middle-panel";
 
           ft_div.append(link);
           td.append(monot);

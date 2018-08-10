@@ -44,10 +44,10 @@ function draw_percent_bar(result) {
         .attr("class","bg_bar")
         .attr("height",bar_height)
         .attr("width",bar_width)
-        .attr("rx",10)
-        .attr("ry",10)
+        .attr("rx",15)
+        .attr("ry",15)
         .style("stroke","black")
-        .style("stroke-width",1.3)
+        .style("stroke-width",1)
         .style("fill","url(#lin_gradient)");
     
     // Drawing middle marker 
@@ -67,7 +67,7 @@ function draw_percent_bar(result) {
     svg.append('g').append("line")
         .attr("class","per_marker")
         .attr("x1",function(){return xScale(result);})
-        .attr("y1",bar_height+1.3)
+        .attr("y1",bar_height)
         .attr("x2",function(){return xScale(result);})
         .attr("y2",bar_height+5)
         .attr("stroke", function(d) {

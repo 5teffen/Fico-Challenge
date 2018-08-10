@@ -542,7 +542,7 @@ def prep_for_D3_global(pre_proc_file,all_data_file,samples,bins_centred,position
 
 
 
-model_overview("static/data/pre_data.csv")
+# model_overview("pre_data1.csv")
 
 # vals = pd.read_csv("final_data_file.csv",header=None).values
 # X = vals[:,1:]
