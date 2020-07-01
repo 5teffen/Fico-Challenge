@@ -15,7 +15,7 @@ The global explanation acts as a way to aggregate the individual results across 
 https://www.fico.com/en/newsroom/fico-announces-winners-of-inaugural-xml-challenge
 
 #### Available Online at
-http://www.ml-explainer.com/challenge_intro
+http://oscargomezq.pythonanywhere.com/intro
 <br/>
 http://nyuvis-web.poly.edu/projects/fico/intro
 
